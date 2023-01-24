@@ -64,10 +64,10 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="extra-component-avatar.html">Form Pengembalian</a>
+                                <a href="{{ route('user.pengembalian') }}">Form Pengembalian</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="extra-component-sweetalert.html">Riwayat Pengembalian  </a>
+                                <a href="{{ route('user.riwayat.pengembalian') }}">Riwayat Pengembalian  </a>
                             </li>
                         </ul>
                     </li>

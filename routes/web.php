@@ -32,9 +32,9 @@ Route::prefix('user')->group(function() {
     Route::get('/form_peminjaman' , [PeminjamanController::class , 'indexForm'])->name('user.form.peminjaman');
     Route::post('/form_peminjaman' , [PeminjamanController::class , 'form']);
     Route::post('/peminjaman/submit' , [PeminjamanController::class , 'store'])->name('submit.peminjaman');
-//     Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('user.pengembalian');
-//     Route::get('/pengembalian/riwayat', [PengembalianController::class, 'riwayatPengembalian'])->name('user.riwayat.pengembalian');
-//     Route::post('/pengembalian/submit' , [PengembalianController::class , 'store'])->name('submit.pengembalian');
+    Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('user.pengembalian');
+    Route::get('/pengembalian/riwayat', [PengembalianController::class, 'riwayatPengembalian'])->name('user.riwayat.pengembalian');
+    Route::post('/pengembalian/submit' , [PengembalianController::class , 'store'])->name('submit.pengembalian');
 
 //     Route::get('/pesan', function(){
 //         return view('user.pesan');

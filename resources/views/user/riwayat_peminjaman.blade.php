@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-6">
-            <h3>Riwayat Pengembalian Buku</h3>
+            <h3>Riwayat Peminjaman Buku</h3>
 
         </div>
     </div>
@@ -23,10 +23,9 @@
                         <th>No</th>
                         <th>Nama Anggota</th>
                         <th>Judul Buku</th>
-                        <th>Tanggal Pengembalian</th>
+                        <th>Tanggal Peminjaman</th>
                         <th>Kondisi buku saat dipinjam</th>
-                        <th>Kondisi buku saat dikembalikan</th>
-                        <th>denda</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -35,10 +34,9 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $p->user->fullname }}</td>
                             <td>{{ $p->buku->judul }}</td>
-                            <td>{{ $p->tanggal_pengembalian }}</td>
+                            <td>{{ $p->tanggal_peminjaman }}</td>
                             <td>{{ $p->kondisi_buku_saat_dipinjam }}</td>
-                            <td>{{ $p->kondisi_buku_saat_dikembalikan }}</td>
-                            <td>{{ $p->denda }}</td>
+                            
                         </tr>
                     @endforeach
                 </tbody>
