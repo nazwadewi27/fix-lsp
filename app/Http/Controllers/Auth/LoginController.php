@@ -43,7 +43,7 @@ class LoginController extends Controller
     {
         return 'username';
     }
-
+//authenticasi ga tuh
     public function authenticasi(Request $request, $user){
         if($user->role === 'admin'){
             return redirect()->route('admin.dashboard');

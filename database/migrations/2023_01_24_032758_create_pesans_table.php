@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('pesans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('penerima_id');
-            $table->foreignId('pengirim_id');
+            $table->foreignId('penerima_id')->constrained('users');
+            $table->foreignId('pengirim_id')->constrained('users');
             $table->string('judul', 50);
             $table->text('isi');
-            $table->enum('status', ['terkirim', 'dibaca']);
-            $table->datetime('tanggal_terkirim');
+            $table->enum('status' , ['terkirim','dibaca']);
+            $table->date('tanggal_terkirim');
             $table->timestamps();
         });
     }

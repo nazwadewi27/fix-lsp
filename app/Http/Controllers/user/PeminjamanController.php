@@ -1,26 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
-use App\Models\Buku;
-use App\Models\Peminjaman;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Peminjaman;
+use App\Models\Buku;
 
 class PeminjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,14 +27,25 @@ class PeminjamanController extends Controller
         return view('user.form_peminjaman', compact('buku'));
     }
 
-    public function form(Request $request){
+    public function form(Request $request)
+    {
         $buku = Buku::all();
         $buku_id = $request->buku_id;
 
-        return view('user.form_peminjaman', compact('buku', 'buku_id'));
+        return view('user.form_peminjaman' , compact('buku' , 'buku_id'));
     }
 
-    public function create()        
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
@@ -59,32 +61,31 @@ class PeminjamanController extends Controller
         $peminjaman = Peminjaman::create($request->all());
         $buku = Buku::where('id', $request->buku_id)->first();
 
-        if($request->kondisi_buku_saat_dipinjam === 'baik'){
+        if($request->kondisi_buku_saat_dipinjam == 'baik'){
             $buku->update([
                 'j_buku_baik' => $buku->j_buku_baik-1
             ]);
         }
 
-        if($request->kondisi_buku_saat_dipinjam === 'rusak'){
+        if($request->kondisi_buku_saat_dipinjam == 'rusak'){
             $buku->update([
                 'j_buku_rusak' => $buku->j_buku_rusak-1
             ]);
         }
 
         if($peminjaman){
-            return redirect()->route('user.riwayat.peminjaman')->with('status', 'success')->with('msg', 'berhasil meminjam');
+            return redirect()->route('user.riwayat.peminjaman')->with('status', 'succses')->with('msg', 'berhasil menambah data');
         }
-        return redirect()->back()->with('status', 'danger')->with('msg', 'gagal meminjam');
-        
+        return redirect()->back()->with('status', 'danger')->with('msg', 'gagal menambah data');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Peminjaman  $peminjaman
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Peminjaman $peminjaman)
+    public function show($id)
     {
         //
     }
@@ -92,10 +93,10 @@ class PeminjamanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Peminjaman  $peminjaman
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Peminjaman $peminjaman)
+    public function edit($id)
     {
         //
     }
@@ -104,10 +105,10 @@ class PeminjamanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Peminjaman  $peminjaman
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Peminjaman $peminjaman)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -115,10 +116,10 @@ class PeminjamanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Peminjaman  $peminjaman
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Peminjaman $peminjaman)
+    public function destroy($id)
     {
         //
     }
