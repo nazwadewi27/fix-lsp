@@ -72,19 +72,17 @@
                         </ul>
                     </li>
     
-                    <li class="sidebar-title">Forms &amp; Tables</li>
-    
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-hexagon-fill"></i>
-                            <span>Form Elements</span>
+                            <span>Pesan</span>
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="form-element-input.html">Input</a>
+                                <a href="form-element-input.html">Pesan Masuk</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="form-element-input-group.html">Input Group</a>
+                                <a href="form-element-input-group.html">Pesan Terkirim</a>
                             </li>
                         </ul>
                     </li>
@@ -92,7 +90,7 @@
                     <li class="sidebar-item  ">
                         <a href="form-layout.html" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
-                            <span>Form Layout</span>
+                            <span>Logout</span>
                         </a>
                     </li>
                 </ul>

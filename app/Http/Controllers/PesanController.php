@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pesan;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PesanController extends Controller
@@ -12,6 +15,33 @@ class PesanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexMasuk(){
+        $pesanMasuk = Pesan::where('pengirim_id', '!=', Auth::user()->id)
+                            ->where('penerima_id', Auth::user()->id)->get();
+
+        return view('user.pesan.masuk', compact('pesanMasuk'));
+    }
+
+    public function indexAdminMasuk(){
+        $pesanMasuk = Pesan::where('pengirim_id', '!=', Auth::user()->id)
+                            ->where('penerima_id', Auth::user()->id)->get();
+        
+        return view('admin.pesan.masuk', compact('pesanMasuk'));
+    }
+
+    public function indexTerkirim(){
+        $pesanTerkirim = Pesan::where('penerima_id', '!=', Auth::user()->id)
+                                ->where('pengirim_id', Auth::user()->id)->get();
+        
+        return view('user.pesan.terkirim', compact('pesanTerkirim'));
+    }
+
+    public function indexAdminTerkirim(){
+        $pesanTerkirim = Pesan::where('penerima_id', '!=', Auth::user()->id)
+                                ->where('pengirim_id', Auth::user()->id);
+        
+        return view('admin.pesan.terkirim', compact('pesanTerikirim'));
+    }
     public function index()
     {
         //
@@ -33,9 +63,20 @@ class PesanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function kirimPesan(Request $request)
     {
-        //
+        $pesanTerkirim = Pesan::where('penerima_id', '!=', Auth::user()->id)->where('pengirim_id', Auth::user()->id);
+        $penerima = User::where('role', 'admin')->get();
+        $pesanTerkirim = Pesan::create([
+            'penerima_id' => $request,
+            'pengirim_id' => $request,
+            'judul' => $request,
+            'isi' => $request,
+            'status' => 'terkirim',
+            'tanggal_terkirim' => Carbon::now(),
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -67,9 +108,14 @@ class PesanController extends Controller
      * @param  \App\Models\Pesan  $pesan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pesan $pesan)
+    public function updateStatus(Request $request, Pesan $pesan)
     {
-        //
+        $status = Pesan::where('id', $request->id)->first();
+        $status->update([
+            'status' => 'terbaca',
+        ]);
+
+        return redirect()->back();
     }
 
     /**
