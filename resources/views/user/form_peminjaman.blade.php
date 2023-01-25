@@ -26,8 +26,8 @@
                     <div class="mb-3">
                         <label for="">Kondisi Buku</label>
                         <select name="kondisi_buku_saat_dipinjam" id="" class="form-select">
-                            <option value="baik">Baik</option>
-                            <option value="baik">Rusak</option>
+                            <option value="Baik">Baik</option>
+                            <option value="Rusak">Rusak</option>
                         </select>
                     </div>
                     <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">

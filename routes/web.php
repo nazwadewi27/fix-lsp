@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
 use App\Http\Controllers\user\PengembalianController;
-use App\Http\Controllers\user\PesanController;
+use App\Http\Controllers\admin\DashboardController as AdminDashbordController;
+use App\Http\Controllers\PesanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,22 +37,14 @@ Route::prefix('user')->group(function() {
     Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('user.pengembalian');
     Route::get('/pengembalian/riwayat', [PengembalianController::class, 'riwayatPengembalian'])->name('user.riwayat.pengembalian');
     Route::post('/pengembalian/submit' , [PengembalianController::class , 'store'])->name('submit.pengembalian');
-    Route::get('/pesan/masuk', [PesanController::class, 'indexMasuk'])->name('user.pesan.masuk');
-    Route::get('/pesan/terkirim', [PesanController::class, 'indexTerkirim'])->name('user.pesan.terkirim');
     Route::post('/pesan/kirim', [PesanController::class, 'kirimPesan'])->name('user.pesan.kirim');
+    Route::get('/pesan/terkirim', [PesanController::class, 'indexTerkirim'])->name('user.pesan.terkirim');
     Route::post('/pesan/masuk/ubah_status', [PesanController::class, 'updateStatus'])->name('user.pesan.masuk.update');
+    Route::get('/pesan/masuk', [PesanController::class, 'indexMasuk'])->name('user.pesan.masuk');
+});
+
+Route::prefix('/admin')->group(function(){
+    Route::get('dashboard', [AdminDashbordController::class, 'index'])->name('admin.dashboard');
+    
 
 });
-//     Route::get('/pesan', function(){
-//         return view('user.pesan');
-//     })->name('user.pesan');
-
-//     Route::get('/profil', function(){
-//         return view('user.profil');
-//     })->name('user.profil');
-// 
-
-// Route::prefix('/admin')->group(function(){
-//     Route::get('dashboard', function(){
-//         return view('admin.dashboard');
-//     })->name('admin.dashboard');

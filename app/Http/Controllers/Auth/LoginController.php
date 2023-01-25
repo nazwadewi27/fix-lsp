@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Auth;    
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -44,8 +45,8 @@ class LoginController extends Controller
         return 'username';
     }
 //authenticasi ga tuh
-    public function authenticasi(Request $request, $user){
-        if($user->role === 'admin'){
+    public function authenticated(){
+        if(Auth::user()->role === 'admin'){
             return redirect()->route('admin.dashboard');
         }
         return redirect()->route('user.dashboard');

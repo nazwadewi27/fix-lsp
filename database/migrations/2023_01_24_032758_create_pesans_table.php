@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('pengirim_id')->constrained('users');
             $table->string('judul', 50);
             $table->text('isi');
-            $table->enum('status' , ['terkirim','dibaca']);
+            $table->enum('status' , ['terkirim','dibaca', 'belum dibaca']);
             $table->date('tanggal_terkirim');
             $table->timestamps();
         });
