@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">  
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Mazer Admin Dashboard</title>
 
@@ -31,15 +31,15 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
-                    
-    
+
+
                     <li class="sidebar-item active ">
                         <a href="{{ route('admin.dashboard') }}" class='sidebar-link'>
                             <i class="bi bi-grid-fill"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-    
+
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
@@ -47,7 +47,7 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="">Data Anggota</a>
+                                <a href="{{ route('anggota.index') }}">Data Anggota</a>
                             </li>
                             <li class="submenu-item ">
                                 <a href="">Data Penerbit</a>
@@ -60,7 +60,7 @@
                             </li>
                         </ul>
                     </li>
-    
+
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
@@ -75,22 +75,22 @@
                             </li>
                         </ul>
                     </li>
-                
+
                     <li class="sidebar-item  ">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
                             <span>Laporan Perpustakaan</span>
                         </a>
                     </li>
-                
+
                     <li class="sidebar-item  ">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-medical-fill"></i>
                             <span>Identitas Aplikasi</span>
                         </a>
                     </li>
-                
-                
+
+
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-collection-fill"></i>
@@ -109,14 +109,14 @@
                             </li>
                         </ul>
                     </li>
-                
+
                     <li class="sidebar-item {{ request()->is('logout*') ? 'active' : '' }} ">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();" class="sidebar-link">
                             <i class="bi bi-arrow-left-square-fill"></i>
                             <span>Logout</span>
                         </a>
-                
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -132,7 +132,6 @@
     <script src="/assets/vendors/apexcharts/apexcharts.js"></script>
     <script src="/assets/js/pages/dashboard.js"></script>
 
-    <script src="/assets/js/main.js"></script>  
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
- 

@@ -6,6 +6,7 @@ use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
 use App\Http\Controllers\user\PengembalianController;
 use App\Http\Controllers\admin\DashboardController as AdminDashbordController;
+use App\Http\Controllers\admin\AnggotaController;
 use App\Http\Controllers\PesanController;
 
 /*
@@ -45,6 +46,6 @@ Route::prefix('user')->group(function() {
 
 Route::prefix('/admin')->group(function(){
     Route::get('dashboard', [AdminDashbordController::class, 'index'])->name('admin.dashboard');
+    Route::get('/anggota/index', [AnggotaController::class, 'index'])->name('anggota.index');
     
-
 });

@@ -4,13 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Buku;
 use App\Models\User;
-use App\Models\Peminjaman;
-use App\Models\Pemberitahuan;
 
-
-class DashboardController extends Controller
+class AnggotaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,14 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data = User::where('role', 'user')->count();
-        $buku = Buku::count();
-        $peminjaman = Peminjaman::count();
-        $pengembalian = Peminjaman::where('tanggal_pengembalian', '!=', null)->count();
-        $pemberitahuan = Pemberitahuan::where('status', 'aktif')->get();
-        // dd($pengembalian);
+        $anggota = User::where('role', 'user')->get();
 
-        return view('admin.dashboard', compact('buku', 'peminjaman', 'data', 'pengembalian', 'pemberitahuan'));
+        return view('admin.anggota.index', compact('anggota'));
     }
 
     /**

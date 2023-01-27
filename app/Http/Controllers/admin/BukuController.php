@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\Buku;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -41,10 +41,10 @@ class BukuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Buku  $buku
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Buku $buku)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class BukuController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Buku  $buku
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Buku $buku)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class BukuController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Buku  $buku
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buku $buku)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class BukuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Buku  $buku
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buku $buku)
+    public function destroy($id)
     {
         //
     }
