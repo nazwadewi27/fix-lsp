@@ -6,6 +6,9 @@ use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\PeminjamanController;
 use App\Http\Controllers\user\PengembalianController;
 use App\Http\Controllers\admin\DashboardController as AdminDashbordController;
+use App\Http\Controllers\admin\PenerbitController as AdminPenerbitController;
+use App\Http\Controllers\admin\PeminjamanController as AdminPeminjamanController;
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\AnggotaController;
 use App\Http\Controllers\PesanController;
 
@@ -46,6 +49,8 @@ Route::prefix('user')->group(function() {
 
 Route::prefix('/admin')->group(function(){
     Route::get('dashboard', [AdminDashbordController::class, 'index'])->name('admin.dashboard');
-    Route::get('/anggota/index', [AnggotaController::class, 'index'])->name('anggota.index');
-    
+    Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.data');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.data');
+    Route::get('/penerbit', [AdminPenerbitController::class, 'index'])->name('penerbit.data');
+    Route::get('/peminjaman', [AdminPeminjamanController::class, 'index'])->name('peminjaman.data');
 });

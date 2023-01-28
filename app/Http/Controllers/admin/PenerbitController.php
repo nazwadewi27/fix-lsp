@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\Penerbit;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Penerbit;
 
 class PenerbitController extends Controller
 {
@@ -14,9 +15,9 @@ class PenerbitController extends Controller
      */
     public function index()
     {
-        $dataPenerbit = Penerbit::all();
+        $penerbit = Penerbit::all();
 
-        return view('admin.penerbit.index', compact('dataPenerbit'));
+        return view('admin.penerbit.index', compact('penerbit'));
     }
 
     /**
@@ -43,10 +44,10 @@ class PenerbitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Penerbit  $penerbit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Penerbit $penerbit)
+    public function show($id)
     {
         //
     }
@@ -54,10 +55,10 @@ class PenerbitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Penerbit  $penerbit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penerbit $penerbit)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +67,10 @@ class PenerbitController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Penerbit  $penerbit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penerbit $penerbit)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +78,10 @@ class PenerbitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Penerbit  $penerbit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penerbit $penerbit)
+    public function destroy($id)
     {
         //
     }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pemberitahuan;
 use Illuminate\Http\Request;
+use App\Models\Peminjaman;
 
-class PemberitahuanController extends Controller
+class PeminjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class PemberitahuanController extends Controller
      */
     public function index()
     {
-        //
+        $peminjaman = Peminjaman::all();
+
+        return view('admin.peminjaman.index', compact('peminjaman'));
     }
 
     /**
@@ -42,10 +44,10 @@ class PemberitahuanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pemberitahuan  $pemberitahuan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Pemberitahuan $pemberitahuan)
+    public function show($id)
     {
         //
     }
@@ -53,10 +55,10 @@ class PemberitahuanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pemberitahuan  $pemberitahuan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemberitahuan $pemberitahuan)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +67,10 @@ class PemberitahuanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pemberitahuan  $pemberitahuan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pemberitahuan $pemberitahuan)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +78,10 @@ class PemberitahuanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pemberitahuan  $pemberitahuan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemberitahuan $pemberitahuan)
+    public function destroy($id)
     {
         //
     }

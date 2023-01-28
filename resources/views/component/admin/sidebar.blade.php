@@ -47,16 +47,16 @@
                         </a>
                         <ul class="submenu ">
                             <li class="submenu-item ">
-                                <a href="{{ route('anggota.index') }}">Data Anggota</a>
+                                <a href="{{ route('anggota.data') }}">Data Anggota</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="">Data Penerbit</a>
+                                <a href="{{ route('admin.data') }}">Data Administrator</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="">Administrator</a>
+                                <a href="{{ route('penerbit.data') }}">Data Penerbit</a>
                             </li>
                             <li class="submenu-item ">
-                                <a href="">Data Peminjaman</a>
+                                <a href="{{ route('peminjaman.data') }}">Data Peminjaman</a>
                             </li>
                         </ul>
                     </li>

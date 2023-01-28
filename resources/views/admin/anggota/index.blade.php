@@ -5,10 +5,10 @@
 
         <div class="row justify-content-between">
             <div class="col-6 col-lg-6 col-md-6">
-                <h3>Riwayat Peminjaman Buku</h3>
+                <h3>Data Anggota</h3>
             </div>
-            <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end">
-                <button class="btn btn-primary ">tambah</button>
+            <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
+                <button class="btn btn-primary">Tambah</button>
             </div>
         </div>
         <div class="card">
@@ -35,7 +35,7 @@
                                 <td>{{ $ang->kelas }}</td>
                                 <td>{{ $ang->alamat }}</td>
                                 <td>
-                                    <button class="btn btn-primary">submit</button>
+                                    <button class="btn btn-primary">update</button>
                                     <button class="btn btn-danger">hapus</button>
                                 </td>
                             </tr>
