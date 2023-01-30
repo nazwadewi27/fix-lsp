@@ -3,4 +3,4 @@
     <div class="container">
         @include('component.admin.sidebar')
     </div>
-@endsection
+@endsection 

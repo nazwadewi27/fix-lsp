@@ -7,7 +7,10 @@
                 <h3>Data Penerbit</h3>
             </div>
             <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
-                <button class="btn btn-primary">Tambah</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
             </div>
         </div>
         <div class="row">
@@ -34,7 +37,7 @@
                                     <button class="btn btn-primary">update</button>
                                     <button class="btn btn-danger">hapus</button></td>
                                </tr>
-                                
+
                             @endforeach
                         </tbody>
 
@@ -43,4 +46,5 @@
             </div>
         </div>
     </div>
+@include('admin.penerbit.create')
 @endsection

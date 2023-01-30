@@ -4,6 +4,10 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Buku;
+use App\Models\Penerbit;
+use App\Models\Kategori;
+
 
 class BukuController extends Controller
 {
@@ -14,7 +18,11 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        $buku = Buku::all();
+        $penerbit = Penerbit::all();
+        $kategori = Kategori::all();
+
+        return view('admin.data_buku.index', compact('buku', 'penerbit', 'kategori'));
     }
 
     /**
@@ -35,7 +43,18 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $buku = Buku::create([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'penerbit_id' => $request->penerbit_id,
+            'pengarang' => $request->pengarang,
+            'tahun_terbit' => $request->tahun_terbit,
+            'isbn' => $request->isbn,
+            'j_buku_baik' => $request->j_buku_baik,
+            'j_buku_rusak' => $request->j_buku_rusak,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -55,9 +74,20 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $buku = Buku::find($id)->update([
+            'judul' => $request->judul,
+            'kategori_id' => $request->kategori_id,
+            'penerbit_id' => $request->penerbit_id,
+            'pengarang' => $request->pengarang,
+            'tahun_terbit' => $request->tahun_terbit,
+            'isbn' => $request->isbn,
+            'j_buku_baik' => $request->j_buku_baik,
+            'j_buku_rusak' => $request->j_buku_rusak,
+        ]);
+
+        return redirect()->back();
     }
 
     /**

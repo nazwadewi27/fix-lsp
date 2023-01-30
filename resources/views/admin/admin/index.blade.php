@@ -8,7 +8,10 @@
                 <h3>Data Admin</h3>
             </div>
             <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
-                <button class="btn btn-primary">Tambah</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
             </div>
         </div>
         <div class="card">
@@ -43,4 +46,5 @@
             </div>
         </div>
     </div>
+@include('admin.admin.create')
 @endsection
