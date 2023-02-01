@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -17,9 +18,10 @@ class AdminController extends Controller
     public function index()
     {
         $admin = User::where('role', 'admin')->get();
-        
+        $count = count($admin);
+        $kode = 'A0' . $count +1;
 
-        return view('admin.admin.index', compact('admin'));
+        return view('admin.admin.index', compact('admin', 'kode'));
     }
 
     /**
@@ -40,7 +42,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $admin = User::where('role', 'admin')->get();
+        $admin = User::create([
+            'kode' => $request->kode,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'verif' => 'verified',
+            'role' => 'admin',
+            'join_date' => Carbon::now(),
+        ]);
+
+        return redirect()->back();
+
     }
 
     /**

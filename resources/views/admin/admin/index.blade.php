@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <td>No</td>
+                            <td>Kode</td>
                             <td>Nama Lengkap</td>
                             <td>Nama Pengguna</td>
                             <td>Kata Sandi</td>
@@ -31,6 +32,7 @@
                         @foreach ( $admin as $key => $adm )
                             <tr>
                                 <td>{{ $key + 1 }}</td>
+                                <td>{{ $adm->kode }}</td>
                                 <td>{{ $adm->fullname }}</td>
                                 <td>{{ $adm->username }}</td>
                                 <td>{{ str_pad('', strlen($adm->password), '•') }}</td>
