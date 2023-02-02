@@ -9,8 +9,8 @@
             </div>
             <div class="col-6 col-lg-6 col-md-6 d-flex justify-content-end" style="margin-bottom: 0.5rem;">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalang">
+                    Tambah Anggota
                 </button>
             </div>
         </div>

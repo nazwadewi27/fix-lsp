@@ -19,7 +19,7 @@ class AdminController extends Controller
     {
         $admin = User::where('role', 'admin')->get();
         $count = count($admin);
-        $kode = 'A0' . $count +1;
+        $kode = 'A0' . $count + 1;
 
         return view('admin.admin.index', compact('admin', 'kode'));
     }

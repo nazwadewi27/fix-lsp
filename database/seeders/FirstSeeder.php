@@ -23,7 +23,7 @@ class FirstSeeder extends Seeder
     public function run()
     {
         User::create([
-            'kode'           => 'A1',
+            'kode'           => 'A01',
             'fullname'       => 'admin',
             'nis'            => null,
             'username'       => 'admin',
@@ -34,11 +34,11 @@ class FirstSeeder extends Seeder
             'role'           => 'admin',
             'join_date'      => '2023-06-01',
             'terakhir_login' => '2023-06-01',
-            
+
         ]);
 
         User::create([
-            'kode'           => 'A2',
+            'kode'           => 'U01',
             'fullname'       => 'User',
             'nis'            => '402958034',
             'username'       => 'user1',
@@ -49,21 +49,7 @@ class FirstSeeder extends Seeder
             'role'           => 'user',
             'join_date'      => '2023-06-01',
             'terakhir_login' => '2023-06-01',
-            
-        ]);
 
-        User::create([
-            'kode'           => 'A3',
-            'fullname'       => 'User',
-            'nis'            => '402958034',
-            'username'       => 'user2',
-            'password'       => bcrypt('user'),
-            'kelas'          => 'XII AKL',
-            'alamat'         => 'Jl. affh yh',
-            'verif'          => 'verified',
-            'role'           => 'user',
-            'join_date'      => '2023-06-01',
-            'terakhir_login' => '2023-06-01',
         ]);
 
         Kategori::create([
@@ -109,7 +95,7 @@ class FirstSeeder extends Seeder
             'j_buku_baik' => '20',
             'j_buku_rusak' => '12',
         ]);
-        
+
         Buku::create([
             'judul' =>   'The Issues',
             'kategori_id' => '1',
@@ -142,16 +128,7 @@ class FirstSeeder extends Seeder
         ]);
 
         Peminjaman::create([
-            'user_id' => '3',
-            'buku_id' => '3',
-            'tanggal_peminjaman' => '2023-06-01',
-            'tanggal_pengembalian' => null,
-            'kondisi_buku_saat_dipinjam' => 'rusak',
-            'denda' => '10000',
-        ]);
-
-        Peminjaman::create([
-            'user_id' => '3',
+            'user_id' => '2',
             'buku_id' => '1',
             'tanggal_peminjaman' => '2023-06-01',
             'tanggal_pengembalian' => null,
@@ -187,7 +164,7 @@ class FirstSeeder extends Seeder
         ]);
 
         Pesan::create([
-            'penerima_id' => '3',
+            'penerima_id' => '2',
             'pengirim_id' => '1',
             'judul' => 'Anda Merusak buku >:|',
             'isi' => 'Anda Terkena denda 100000',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AnggotaController extends Controller
 {
@@ -16,8 +17,10 @@ class AnggotaController extends Controller
     public function index()
     {
         $anggota = User::where('role', 'user')->get();
+        $count = count($anggota);
+        $kode = 'U0' . $count + 1;
 
-        return view('admin.anggota.index', compact('anggota'));
+        return view('admin.anggota.index', compact('anggota', 'kode'));
     }
 
     /**
@@ -38,7 +41,20 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $anggota = User::create([
+            'kode' => $request->kode,
+            'nis' => $request->nis,
+            'fullname' => $request->fullname,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'kelas' => $request->kelas,
+            'alamat' => $request->alamat,
+            'verif' => 'verified',
+            'role' => 'user',
+            'join_date' => Carbon::now(),
+        ]);
+
+        return redirect()->back()->with('msg', 'Berhasil Menambah Data');
     }
 
     /**
@@ -83,6 +99,8 @@ class AnggotaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $anggota = Anggota::find($id)->delete();
+
+        return redirect()->back()->with('msg', 'Berhasil Menghapus Data');
     }
 }

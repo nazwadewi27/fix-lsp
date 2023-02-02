@@ -54,4 +54,6 @@ Route::prefix('/admin')->group(function(){
     Route::get('/penerbit', [AdminPenerbitController::class, 'index'])->name('penerbit.data');
     Route::get('/peminjaman', [AdminPeminjamanController::class, 'index'])->name('peminjaman.data');
     Route::post('/admin/tambah', [AdminController::class, 'store'])->name('admin.tambah.data');
+    Route::post('/anggota/tambah', [AnggotaController::class, 'store'])->name('anggota.tambah.data');
+    
 });
